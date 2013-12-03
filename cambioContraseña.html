@@ -1,0 +1,208 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+  <title>Wisemx - Renew Password</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=500">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic" />
+  
+  
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          background: #F2F2F2; <!--url(http://peoplepowerco.com/img/email/bgBlueLg.png)--> no-repeat;
+          background-size: 100%;
+          color: #333;
+          text-shadow: #fff 0px 1px 0px;
+          font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        #header {
+          width: 100%;
+          height: 45px;
+          background: #1CC0B1 url(http://wisemx.com.mx/img/logo.png) no-repeat;
+          background-size: 200px 45px;
+        }
+        
+        #logo {
+          width: 0px;
+          height: 0px;
+        }
+        
+        h1 {
+          color: #1CC0B1;
+          text-shadow: #000 0px 0px 0px;
+        }
+
+        .container {
+          width: 500px;
+          margin: 0px auto;
+          text-align: center;
+        }
+        
+        .box {
+          background: #E0E0E0;
+          background: -webkit-gradient(linear, left top, left bottom, from(#E9E9E9), to(#D7D7D7));
+          background: -moz-linear-gradient(top, #E9E9E9, #D7D7D7);
+          -webkit-box-shadow: inset 0px 2px 2px #B2B3B5;
+          -moz-box-shadow: inset 0px 2px 2px #B2B3B5;
+          -o-box-shadow: inset 0px 2px 2px #B2B3B5;
+          -khtml-box-shadow: inset 0px 2px 2px #B2B3B5;
+          box-shadow: inset 0px 2px 2px #B2B3B5;
+          -webkit-border-radius: 18px;
+          -o-border-radius: 18px;
+          -khtml-border-radius: 18px;
+          border-radius: 18px;
+          behavior: url(border-radius.htc);
+          border: solid 3px #FFFFFF;
+        }
+        
+        label {
+          font-size: 18px;
+        }
+        
+        input {
+          font-size: 18px;
+        }
+        
+        input.button-primary { 
+          display: inline-block; 
+          padding: 8px 20px 10px; 
+          text-decoration: none; 
+          font-weight: bold; 
+          -moz-border-radius: 10px; 
+          -webkit-border-radius: 10px; 
+          border-radius: 10px; 
+          behavior: url(border-radius.htc);
+          background-color: #f1f1f2;
+          background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f2), to(#acacae)); 
+          background: -moz-linear-gradient(top,  #f1f1f2,  #acacae); 
+          color: #333;
+          text-shadow: 0px 1px 0px #ffffff;
+          -webkit-box-shadow: inset 0px 1px 0 #fff, #000 1px 1px 5px;
+          -moz-box-shadow: inset 0px 1px 0 #fff, #000 1px 1px 5px;
+          -o-box-shadow: inset 0px 1px 0 #fff, #000 1px 1px 5px;
+          -khtml-box-shadow: inset 0px 1px 0 #fff, #000 1px 1px 5px;
+          box-shadow: inset 0px 1px 0 #fff, #000 1px 1px 5px;
+          border: none; 
+          font-size: 18px;
+          font-family: FuturaHv, Helvetica, Arial, sans-serif;
+          text-transform: uppercase;
+        }
+        
+        input.button-primary:hover	{ 
+          background-color: #026eb2;
+          background: -webkit-gradient(linear, left top, left bottom, from(#98d7fe), to(#026eb2)); 
+          background: -moz-linear-gradient(top,  #98d7fe,  #026eb2); 
+          color: #ffffff;
+          text-shadow: 0px -1px 0px #333333;
+        }
+        
+        input.button-primary:active	{ 
+          background-color: #004b7b;
+          background: -webkit-gradient(linear, left top, left bottom, from(#026eb2), to(#004b7b)); 
+          background: -moz-linear-gradient(top,  #026eb2,  #004b7b); 
+          color: #cccccc;
+          text-shadow: 0px -1px 0px #000000;
+        }
+        
+        input.button-primary:disabled	{ 
+          background-color: #f1f1f2;
+          background: -webkit-gradient(linear, left top, left bottom, from(#f1f1f2), to(#acacae)); 
+          background: -moz-linear-gradient(top,  #f1f1f2,  #acacae); 
+          color: #999;
+          text-shadow: 0px 1px 0px #ffffff;
+          -webkit-box-shadow: inset 0px 1px 0 #fff;
+          -moz-box-shadow: inset 0px 1px 0 #fff;
+          -o-box-shadow: inset 0px 1px 0 #fff;
+          -khtml-box-shadow: inset 0px 1px 0 #fff;
+          box-shadow: inset 0px 1px 0 #fff;
+          border: none; 
+        }
+      </style>
+  
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	
+	<script>
+		function submitForm()
+		{
+		
+		
+		var res = document.URL.split("=");
+		
+		res[1] = "R5WsXlz6x9Zv1jeJvVXsRrlcZaYdaePwe0qurijL4RU7Rfp4-X9dUH0bAHgIKd4j";
+		
+		var request = "http://developer.peoplepowerco.com/espapi/rest/user/"+res[1];
+		
+			 var frm = document.forms[0];
+			 var pwdElement = frm.elements["pwd"]
+			 var pwdConfirmElement = frm.elements["pwdConfirm"]
+				 
+				 if (pwdElement.value.length < 6)
+				 {
+						alert('La contrasena debe ser de al menos 6 caracteres de largo');
+				 }
+			 else if (pwdElement.value == pwdConfirmElement.value)
+			 {
+			 
+				var user= '<request><user><password>'+pwdElement.value+'</password></user></request>';
+				
+				$.ajax({
+				url:request,
+				type:"POST",
+				dataType:"text/xml",
+				data: user,
+				async: false,
+				success:
+					function( data, status, byKey ){
+						alert("Datos modificados exitosamente");
+						window.location.href= "http://wisemx.com.mx/WiseEnergy/v3/#/";	
+					},
+				error:
+					function( data, status, byKey ){
+						alert("Contrasena no modificada, intente otra vez");
+					},
+				cache:false
+			});
+			 
+				 var sbmButtom = frm.elements["submitButton"];
+				 sbmButtom.disable=true;
+				 frm.submit();	 
+			 }	 
+			 else
+			 {
+				alert("Las contrasenas no coinciden. Favor de corregirlo e intentar otra vez.")		 
+			 }
+		}
+  </script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="logo"></div>
+  
+  <div class="container">
+    <br clear="all">
+    <form name="renewPassword">
+      
+      <h1>Escriba su nueva contraseña</h1>
+      <div class="box">
+        <p>
+          <label for="pwd">Nueva contraseña:</label><br>
+          <input id="pwd" name="pwd" type="password" value="">
+        </p>
+        <p>
+          <label for="pwdConfirm">Confirmar contraseña:</label><br>
+          <input id="pwdConfirm" name="pwdConfirm" type="password" value="">
+        </p>
+        <br>
+      </div>
+      <p>
+        <input type="button" name="submitButton" onclick="javascript:submitForm()" value="Cambiar contraseña" class="button-primary">
+      </p>
+    </form>
+  </div>
+</body>
+</html>
