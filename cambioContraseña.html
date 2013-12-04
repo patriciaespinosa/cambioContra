@@ -129,12 +129,11 @@
 		function submitForm()
 		{
 		
-		
 		var res = document.URL.split("=");
 		
-		res[1] = "R5WsXlz6x9Zv1jeJvVXsRrlcZaYdaePwe0qurijL4RU7Rfp4-X9dUH0bAHgIKd4j";
+		//res[1] = "R5WsXlz6x9Zv1jeJvVXsRrlcZaYdaePwe0qurijL4RU7Rfp4-X9dUH0bAHgIKd4j";
 		
-		var request = "http://developer.peoplepowerco.com/espapi/rest/user/"+res[1];
+		//var request = "http://developer.peoplepowerco.com/espapi/rest/user/"+res[1];
 		
 			 var frm = document.forms[0];
 			 var pwdElement = frm.elements["pwd"]
@@ -142,27 +141,32 @@
 				 
 				 if (pwdElement.value.length < 6)
 				 {
-						alert('La contrasena debe ser de al menos 6 caracteres de largo');
+						alert('La contraseña debe ser de al menos 6 caracteres de largo');
 				 }
 			 else if (pwdElement.value == pwdConfirmElement.value)
 			 {
 			 
-				var user= '<request><user><password>'+pwdElement.value+'</password></user></request>';
+				//var user= '<request><user><password>'+pwdElement.value+'</password></user></request>';
+				
+				urlR="http://developer.peoplepowerco.com/cloud/xml/newPassword?forward=wisemx";
 				
 				$.ajax({
-				url:request,
-				type:"POST",
+				url:urlR,
+				headers: {
+								'PRESENCE_API_KEY':res[1],
+								'PASSWORD':pwdElement.value
+						},
+				type:"PUT",
 				dataType:"text/xml",
-				data: user,
 				async: false,
 				success:
 					function( data, status, byKey ){
-						alert("Datos modificados exitosamente");
-						window.location.href= "http://wisemx.com.mx/WiseEnergy/v3/#/";	
+						alert("Contraseña no modificada, intente otra vez");
 					},
 				error:
 					function( data, status, byKey ){
-						alert("Contrasena no modificada, intente otra vez");
+						alert("Datos modificados exitosamente");
+						window.location.href= "inicio.html";	
 					},
 				cache:false
 			});
@@ -173,7 +177,7 @@
 			 }	 
 			 else
 			 {
-				alert("Las contrasenas no coinciden. Favor de corregirlo e intentar otra vez.")		 
+				alert("Las contraseñas no coinciden. Favor de corregirlo e intentar otra vez.")		 
 			 }
 		}
   </script>
